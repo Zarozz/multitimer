@@ -15,7 +15,7 @@ A touch-friendly web-based timer application designed for multiplayer board game
 
 ## 🚀 Live Demo
 
-Visit the live application: [https://yourusername.github.io/multitimer](https://yourusername.github.io/multitimer)
+Visit the live application: [https://zarozz.github.io/multitimer](https://zarozz.github.io/multitimer)
 
 ## 📱 Usage
 
