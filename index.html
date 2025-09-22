@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Multiplayer Board Game Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>Board Game Timer</h1>
+            <div class="header-controls">
+                <button id="turnOrderBtn" class="settings-btn">🔄 Turn Order</button>
+                <button id="settingsBtn" class="settings-btn">⚙️ Settings</button>
+            </div>
+        </header>
+
+        <div class="team-bank-container">
+            <div class="team-bank">
+                <div class="team-bank-label">Team Bank</div>
+                <div id="teamBankTime" class="team-bank-time">00:00</div>
+                <button id="teamBankBtn" class="team-bank-btn">Use Team Bank</button>
+            </div>
+        </div>
+
+        <div id="playersContainer" class="players-container">
+            <!-- Player timers will be dynamically generated here -->
+        </div>
+
+        <div class="controls">
+            <button id="pauseBtn" class="control-btn pause-btn">⏸️ Pause</button>
+            <button id="resetBtn" class="control-btn reset-btn">🔄 Reset</button>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Timer Settings</h2>
+                <span id="closeModal" class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label for="playerCount">Number of Players:</label>
+                    <select id="playerCount">
+                        <option value="2">2 Players</option>
+                        <option value="3">3 Players</option>
+                        <option value="4" selected>4 Players</option>
+                        <option value="5">5 Players</option>
+                        <option value="6">6 Players</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="bankTimeMinutes">Bank Time (minutes):</label>
+                    <input type="number" id="bankTimeMinutes" min="1" max="180" value="30">
+                </div>
+                
+                <div class="setting-group">
+                    <label for="turnTimeSeconds">Time per Turn (seconds):</label>
+                    <input type="number" id="turnTimeSeconds" min="10" max="600" value="60">
+                </div>
+                
+                <div class="setting-group">
+                    <label for="teamBankMinutes">Team Bank Time (minutes):</label>
+                    <input type="number" id="teamBankMinutes" min="0" max="60" value="10">
+                </div>
+                
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="enableTurnTime" checked>
+                        Enable per-turn time limit
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="applySettings" class="apply-btn">Apply Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Turn Order Modal -->
+    <div id="turnOrderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Manage Players & Turn Order</h2>
+                <span id="closeTurnOrderModal" class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="player-management-section">
+                    <h3>Player Count</h3>
+                    <div class="player-count-controls">
+                        <button id="removePlayer" class="player-count-btn">- Remove Player</button>
+                        <span id="currentPlayerCount">4</span>
+                        <button id="addPlayer" class="player-count-btn">+ Add Player</button>
+                    </div>
+                </div>
+                
+                <div class="turn-order-section">
+                    <h3>Turn Order & Colors</h3>
+                    <p>Drag players to reorder them. The top player will go next.</p>
+                    <div id="turnOrderList" class="turn-order-list">
+                        <!-- Player order items will be dynamically generated here -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="applyTurnOrder" class="apply-btn">Apply Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
